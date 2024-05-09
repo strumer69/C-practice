@@ -2,11 +2,9 @@
 #include <cstdlib>
 
 int main(){
-int x;
-std::cout << "please enter a number:";
-std::cin >> x;
-if (x>10){
-    std::cout << " number is big" << std::endl;
-    }
-    return 0;
+int x = 2 , y = 3 , min;
+min = (x < y)? x:y;
+std::cout<< "min = " << min << std::endl;
+
+return 0;
 }
