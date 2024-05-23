@@ -43,7 +43,7 @@ class PERSON
     string uni;
     cin >> uni;
     }
-    
+
     PERSON()
     {
         Request_Data();
@@ -189,7 +189,7 @@ int main(){
         case 1:
             {
                 cout <<"(registration) selected"<< endl; 
-                students[0].Request_Data();
+                // students[0].Request_Data();
                 break;
             }
         case 2:
