@@ -23,23 +23,6 @@ public:
         return Email;
     };
 
-    void Request_Data()
-    {
-        cout << "----Welcome to Course Registration----" << endl
-             << endl;
-        cout << "--Please Enter the Required Data--" << endl;
-        cout << "SurName: " << endl;
-        cin >> SurName;
-        cout << "FirstName: " << endl;
-        cin >> FirstName;
-        cout << "Email adress: " << endl;
-        cin >> Email;
-        cout << "from DIT university(y)other Universities(n) ?" << endl;
-        string uni;
-        cin >> uni;
-    };
-
-
     PERSON(string FN, string SN, string EM) : FirstName(FN), SurName(SN), Email(EM) {}
 };
 
@@ -49,6 +32,8 @@ private:
     string AcademicTitle;
 
 public:
+    // PERSON(string FN, string SN, string EM) : FirstName(FN), SurName(SN), Email(EM) {}
+
     LECTURER(string FN, string SN, string EM, string AT) : PERSON(FN, SN, EM), AcademicTitle(AT) {}
 
     string AcademicTitleGetter()
@@ -72,8 +57,9 @@ private:
     string University;
 
 public:
-    // STUDENT() { Request_Data(); };
-
+    // LECTURER(string FN, string SN, string EM, string AT) 
+    //: PERSON(FN, SN, EM), AcademicTitle(AT) {}
+    
     STUDENT(string FN, string SN, string EM, unsigned int MN, string UN)
         : PERSON(FN, SN, EM), MatriculationNumber(MN), University(UN) {}
 
@@ -82,9 +68,56 @@ public:
         return University;
     }
 
+    void Request_Data()
+    {
+        cout << "----Welcome to Course Registration----" << endl << endl;
+        cout << "--Please Enter the Required Data--" << endl;
+        cout << "SurName: " << endl;
+        cin >> SurName;
+        cout << "FirstName: " << endl;
+        cin >> FirstName;
+        cout << "Email adress: " << endl;
+        cin >> Email;
+        cout << "from DIT university(y)other Universities(n) ?" << endl;
+        // string uni;
+        cin >> University;
+        if (University=="y"){
+            cout << "you can choose more than 1 course:";
+        } else{
+            cout << "you can choose only 1 course";
+
+        }
+        
+        cout << "select course name:"<< endl;
+        cout << "1: Programming Lab" << endl;
+        cout << "2: Database " << endl;
+        cout << "3: softwarEngineering" << endl;
+        cout << "please select:"<< endl;
+        int course_select;
+        cin >> course_select ;
+        
+        switch (course_select)
+        {
+        case 1:
+            cout << "program lab selected" << endl;
+            break;
+        case 2:
+            cout << "Database selected" << endl;
+
+            break;
+        case 3:
+            cout << "Software selected" << endl;
+
+            break;
+        default:
+        cout << "wrong selection"<< endl;
+            break;
+        }
+    };
+
     void display_Info()
     {
-        cout << "Student: " << MatriculationNumber << "-";
+        cout << "MatriculationNumber: " << MatriculationNumber << "-";
         cout << "University Name: " << University << "-";
         cout << "First Name:" << FirstName << "-";
         cout << "Sure Name:" << SurName << "-";
@@ -116,7 +149,11 @@ int main()
     COURSE database("Database", lecturer2);
     COURSE software_engineering("Software_engineering", lecturer3);
 
-    STUDENT student1;
+
+    // STUDENT(string FN, string SN, string EM, unsigned int MN, string UN)
+    //     : PERSON(FN, SN, EM), MatriculationNumber(MN), University(UN) {}
+
+    STUDENT student1("","","",0,"");
 
     int select; // Move the declaration of select outside the do-while loop
 
@@ -135,8 +172,11 @@ int main()
         {
         case 1:
             cout << "(registration) selected" << endl;
-            // Here you can put the code for registering a student
-            // student1.Request_Data();
+            student1.Request_Data();
+            student1.display_Info();
+
+            
+
             break;
         case 2:
             cout << "Course with participants student details:" << endl;
