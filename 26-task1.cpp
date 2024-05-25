@@ -2,7 +2,13 @@
 #include <cstdlib>
 using namespace std;
 
+//global variable:
+int program_course_participants=0;
+int database_course_participants=0;
+int software_course_participants=0;
+
 //Parent of two children (student and lecturer)
+
 class PERSON
 {
 protected:
@@ -83,11 +89,13 @@ public:
         cin >> University;
         if (University=="y"){
             cout << "you can choose more than 1 course:";
-        } else{
+        } else if(University=="n"){
             cout << "you can choose only 1 course";
-
+        }else{
+            cout << "wrong answer please only answer y or n." << endl;
         }
         
+
         cout << "select course name:"<< endl;
         cout << "1: Programming Lab" << endl;
         cout << "2: Database " << endl;
@@ -99,18 +107,47 @@ public:
         switch (course_select)
         {
         case 1:
+            program_course_participants++;
+            cout << " number of participants till now:"
+            << program_course_participants<<endl;
+
+            if (program_course_participants >10){
+                cout << "the capacity of programming course is full"<< endl;
+                break;
+            }else{
             cout << "program lab selected" << endl;
+
+
+            }
+
             break;
         case 2:
-            cout << "Database selected" << endl;
+            database_course_participants++;
+            cout << " number of participants till now:"
+            << database_course_participants<<endl;
+
+            if (database_course_participants >10){
+                cout << "the capacity of Database course is full"<< endl;
+                break;
+            }else{
+            cout << "Database course selected" << endl;
+
+            }
 
             break;
         case 3:
-            cout << "Software selected" << endl;
+            software_course_participants++;
+            cout << " number of participants till now:"
+            << software_course_participants<<endl;
 
-            break;
-        default:
-        cout << "wrong selection"<< endl;
+            if (software_course_participants >10){
+                cout << "the capacity of software_engineering course is full"<< endl;
+                break;
+            }else{
+            cout << "software_engineering course selected" << endl;
+
+            }
+
             break;
         }
     };
@@ -132,12 +169,13 @@ private:
     LECTURER Lecturer;
 
 public:
-    static int Number_Of_participants;
 
     COURSE(string CN, LECTURER LEC) : CourseName(CN), Lecturer(LEC) {}
 };
+// void programming_addItem(STUDENT arr[]);
+// void addItem_programming(STUDENT arr[])
+// {
 
-int COURSE::Number_Of_participants = 0;
 
 int main()
 {
@@ -173,10 +211,7 @@ int main()
         case 1:
             cout << "(registration) selected" << endl;
             student1.Request_Data();
-            student1.display_Info();
-
-            
-
+            // student1.display_Info();
             break;
         case 2:
             cout << "Course with participants student details:" << endl;
