@@ -276,19 +276,19 @@ void addItem(STUDENT arr[])
         cout << "Email adress: " << endl;
         string Email_;
         cin >> Email_;
-        arr{STUDENT::counter}.setEmail(Email_);
+        arr[STUDENT::counter].setEmail(Email_);
 
         cout << "University name: " << endl;
         string University_;
         cin >> University_;
-        arr{STUDENT::counter}.uniSetter(University_);
+        arr[STUDENT::counter].uniSetter(University_);
 
         cout << "Matriculation Number : " << endl;
-        string UniveMatriculation_;
-        cin >> UniveMatriculation_;
-        arr {STUDENT::counter}.matNoSetter(Matriculation_);
+        unsigned int Matriculation_;
+        cin >> Matriculation_;
+        arr [STUDENT::counter].matNoSetter(Matriculation_);
         STUDENT::counter ++;
-        cout << "The Student has been added to course." << endl;
+        cout << "The Student has been added to course." << endl <<endl <<endl;
     }
     else{
         cout << "The list is full"<< endl;
