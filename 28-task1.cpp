@@ -2,12 +2,12 @@
 #include <cstdlib>
 using namespace std;
 
-//global variable:
+//global variable to have  participants limitation 
 int program_course_participants=0;
 int database_course_participants=0;
 int software_course_participants=0;
 
-//Parent of two children (student and lecturer)
+//Parent class (PERSON) of two children (student and lecturer)
 
 class PERSON
 {
@@ -225,7 +225,6 @@ int main()
     STUDENT studentsOfDatabase[10];
     STUDENT studentsOfSoftware[10];
 
-    int select; // Move the declaration of select outside the do-while loop
 
     do
     {
@@ -233,24 +232,25 @@ int main()
         cout << "[1] Register for the course" << endl;
         cout << "[2] Output of one/all courses with data of participants" << endl;
         cout << "[3] Output of all courses that are not fully booked yet" << endl;
-        cout << "[0] Exit" << endl;
-        cout << endl
-             << "Please select: ";
+        cout << "[4] Exit" << endl;
+        cout << endl;
+        cout<<"Please select: " << endl;
+        int select;
         cin >> select;
-        switch (select){
-
+        switch (select)
+        {
         case 1:
             cout << "(registration) selected" << endl;//inja
             cout << "University name: " << endl;
-            cout << "a: if you are from DIT university." << endl;
-            cout << "b: if you are from other university." << endl;//inja
-            string University_;
-            cin >> University_;
+            cout << "1: if you are from DIT university." << endl;
+            cout << "2: if you are from other university." << endl;//inja
+            // string University_;
+            int uni;
+            cin >> uni;
 
-            if(University_=="a"){
-                cout<<"you can choose more than courses"<< endl;
-                    for (int i=0; i<3;i++){
-                                  
+            if(uni==1){
+                cout<<"you can choose more than 1 courses"<< endl;
+                for (int i=0; i<3;i++){          
                     cout << "select course name:"<< endl;
                     cout << "1: Programming Lab" << endl;
                     cout << "2: Database " << endl;
@@ -261,18 +261,15 @@ int main()
                     cin >> course_select ;
                     
                     if (course_select==1){
-
-                    
                         program_course_participants++;
                         cout << " programming participants till now:"
                         << program_course_participants<<endl;
 
                         if (program_course_participants ==10){
                             cout << "the capacity in programming course is full"<< endl;
-                            break;
                         }else{
-                        cout << "program lab selected" << endl;
-                        addStudentData(studentsOfProgramming);
+                            cout << "program lab selected" << endl;
+                            addStudentData(studentsOfProgramming);
                         }
                     }else if(course_select==2){
                         database_course_participants++;
@@ -281,79 +278,89 @@ int main()
 
                         if (database_course_participants ==10){
                             cout << "the capacity in Database course is full"<< endl;
-                            break;
                         }else{
-                        cout << "Database course selected" << endl;
-                        addStudentData(studentsOfDatabase);
+                            cout << "Database course selected" << endl;
+                            addStudentData(studentsOfDatabase);
                         }
-                    }else if( course_select==3){
+                    }else if(course_select==3){
                         software_course_participants++;
                         cout << " SoftWare participants till now:"
                         << software_course_participants<<endl;
 
                         if (software_course_participants ==10){
                             cout << "software_engineering course is full"<< endl;
-                            break;
+                        
                         }else{
-                        cout << "software_engineering course selected" << endl;
-                        addStudentData(studentsOfSoftware);
+                            cout << "software_engineering course selected" << endl;
+                            addStudentData(studentsOfSoftware);
                         }
+                        
+                    }else if (course_select==4){
+                        true;
+                        break;
                     }
                 }
-            } else {  
-                cout<< "you can choose only one course" << endl;
-                                   
-                    cout << "select course name:"<< endl;
-                    cout << "1: Programming Lab" << endl;
-                    cout << "2: Database " << endl;
-                    cout << "3: SorEngineering" << endl;
-                    cout << "4: Finish Course Election" << endl;
-                    cout << "please select:"<< endl;
-                    int course_select;
-                    cin >> course_select ;
-                    
-                    if (course_select==1){
+            } else if(uni== 2) { 
+                
+                cout<< endl <<endl<< endl << "you can choose only one course" << endl;
+                cout << endl << endl;
+                cout << "select course name:"<< endl;
+                cout << "1: Programming Lab" << endl;
+                cout << "2: Database " << endl;
+                cout << "3: SorEngineering" << endl;
+                cout << "4: Finish Course Election" << endl;
+                cout << "please select:"<< endl;
+                int course_select;
+                cin >> course_select ;
+                
+                if (course_select==1){
 
-                    
-                        program_course_participants++;
-                        cout << " programming participants till now:"
-                        << program_course_participants<<endl;
+                    program_course_participants++;
+                    cout << " programming participants till now:"
+                    << program_course_participants<<endl;
 
-                        if (program_course_participants ==10){
-                            cout << "the capacity in programming course is full"<< endl;
-                            break;
-                        }else{
+                    if (program_course_participants ==10){
+                        cout << "the capacity in programming course is full"<< endl;
+                        
+                    }else{
+
                         cout << "program lab selected" << endl;
                         addStudentData(studentsOfProgramming);
-                        }
-                    }else if(course_select==2){
-                        database_course_participants++;
-                        cout << " DataBase participants till now:"
-                        << database_course_participants<<endl;
+                    }
+                    
+                }else if(course_select==2){
+                    database_course_participants++;
+                    cout << " DataBase participants till now:"
+                    << database_course_participants<<endl;
 
-                        if (database_course_participants ==10){
-                            cout << "the capacity in Database course is full"<< endl;
-                            break;
-                        }else{
+                    if (database_course_participants ==10){
+                        cout << "the capacity in Database course is full"<< endl;
+                    
+                    }else{
+                            
                         cout << "Database course selected" << endl;
                         addStudentData(studentsOfDatabase);
-                        }
-                    }else if( course_select==3){
-                        software_course_participants++;
-                        cout << " SoftWare participants till now:"
-                        << software_course_participants<<endl;
+                    }
+                    
+                }else if( course_select==3){
 
-                        if (software_course_participants ==10){
-                            cout << "software_engineering course is full"<< endl;
-                            break;
-                        }else{
+                    software_course_participants++;
+                    cout << " SoftWare participants till now:"
+                    << software_course_participants<<endl;
+
+                    if (software_course_participants ==10){
+                        cout << "software_engineering course is full"<< endl;
+                
+                    }else{
+                            
                         cout << "software_engineering course selected" << endl;
                         addStudentData(studentsOfSoftware);
-                        }
-                    }
+                    }   
+                }
             }
             break;
         case 2:
+            
             cout << "Course with participants student details:" << endl;
             cout << "****** COURSE DETAIL*****" <<endl;
             cout << "Programming: "<<endl;
@@ -378,12 +385,11 @@ int main()
             cout << "SoftwareEngineering Free Capacity: "<<endl;
             cout << 10-software_course_participants <<endl;
             cout<< "--------------------------------------------"<<endl;
-            
-            
+            break;   
         }
-    
-
-    } while (select != 0); // Now the loop will continue until select is 0
+        
+ 
+    } while (select != 0); 
 
     return 0;
 }
