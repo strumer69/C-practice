@@ -1,7 +1,7 @@
 switch (select)
         {
         case 1:
-        
+
             cout << "(registration) selected" << endl;//inja
             cout << "University name: " << endl;
             cout << "a: if you are from DIT university." << endl;
@@ -31,11 +31,12 @@ switch (select)
 
                         if (program_course_participants ==10){
                             cout << "the capacity in programming course is full"<< endl;
-                            break;
+                        
                         }else{
                         cout << "program lab selected" << endl;
                         addStudentData(studentsOfProgramming);
                         }
+                        break;
                     }else if(course_select==2){
                         database_course_participants++;
                         cout << " DataBase participants till now:"
@@ -43,11 +44,12 @@ switch (select)
 
                         if (database_course_participants ==10){
                             cout << "the capacity in Database course is full"<< endl;
-                            break;
+                        
                         }else{
                         cout << "Database course selected" << endl;
                         addStudentData(studentsOfDatabase);
                         }
+                        break;
                     }else if( course_select==3){
                         software_course_participants++;
                         cout << " SoftWare participants till now:"
@@ -55,11 +57,12 @@ switch (select)
 
                         if (software_course_participants ==10){
                             cout << "software_engineering course is full"<< endl;
-                            break;
+                        
                         }else{
                         cout << "software_engineering course selected" << endl;
                         addStudentData(studentsOfSoftware);
                         }
+                        break;
                     }else if (course_select==4){
                         break;
                     }
@@ -85,11 +88,12 @@ switch (select)
 
                         if (program_course_participants ==10){
                             cout << "the capacity in programming course is full"<< endl;
-                            break;
+                            
                         }else{
                         cout << "program lab selected" << endl;
                         addStudentData(studentsOfProgramming);
                         }
+                        break;
                     }else if(course_select==2){
                         database_course_participants++;
                         cout << " DataBase participants till now:"
@@ -97,11 +101,12 @@ switch (select)
 
                         if (database_course_participants ==10){
                             cout << "the capacity in Database course is full"<< endl;
-                            break;
+                        
                         }else{
                         cout << "Database course selected" << endl;
                         addStudentData(studentsOfDatabase);
                         }
+                        break;
                     }else if( course_select==3){
                         software_course_participants++;
                         cout << " SoftWare participants till now:"
@@ -109,14 +114,16 @@ switch (select)
 
                         if (software_course_participants ==10){
                             cout << "software_engineering course is full"<< endl;
-                            break;
+                    
                         }else{
                         cout << "software_engineering course selected" << endl;
                         addStudentData(studentsOfSoftware);
                         }
+                        break;
                     }
+                    break;
             }
-        break;
+            break;
         case 2:
             cout << "Course with participants student details:" << endl;
             cout << "****** COURSE DETAIL*****" <<endl;
